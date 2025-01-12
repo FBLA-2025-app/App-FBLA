@@ -1,0 +1,146 @@
+:root {
+    --purple: #9100ca;
+    --mint-green: #82f182;
+    --dark-gray: #333333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b;
+    color: var(--dark-gray);
+}
+
+nav, footer {
+    background-color: var(--purple);
+    color: white;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+nav {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer {
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+main {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 20px;
+}
+
+#content {
+    color: white;;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: white;
+}
+
+select {
+    background-color: var(--mint-green);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--dark-gray);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+select:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#levelList {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.level-button {
+    background-color: var(--purple);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.level-button:active {
+    transform: scale(0.95);
+    background-color: #6A1CB2;
+}
+
+#question {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#answers {
+    display: grid;
+    gap: 10px;
+}
+
+.answer-button {
+    background-color: var(--mint-green);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answer-button:active {
+    transform: scale(0.95);
+    background-color: #78DF78;
+}
+
+.active {
+    background-color: var(--mint-green);
+    color: var(--dark-gray);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+select:hover, button:hover, .level-button:hover, .answer-button:hover {
+    animation: pulse 0.3s ease-in-out;
+}

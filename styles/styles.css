@@ -1,8 +1,19 @@
+@font-face {
+  font-family: "Nexa";
+  src: url("../assets/Nexa-Heavy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --purple: #9100ca;
   --mint-green: #48f1b1;
   --dark-gray: #333333;
   --blue: #4b8f8c;
+}
+
+button {
+  font-family: "Nexa", sans-serif;
 }
 
 body {
@@ -29,6 +40,18 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Nexa", sans-serif;
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+}
+
+#nav-logo {
+  display: inline-block;
+  width: 13%;
+  margin-right: 0.3rem;
 }
 
 footer {
@@ -41,6 +64,11 @@ main {
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 20px;
+  font-family: "Nexa", sans-serif;
+}
+
+#home-header {
+  font-size: 2rem;
 }
 
 #content {
@@ -60,6 +88,7 @@ h1 {
 
 select {
   background-color: var(--blue);
+  font-family: "Nexa", sans-serif;
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -100,6 +129,7 @@ button:active {
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: "Nexa", sans-serif;
 }
 
 .active-level:active {
@@ -151,6 +181,7 @@ button:active {
   width: 100%;
   aspect-ratio: 1 / 1;
   font-size: 2.5rem;
+  font-family: "Nexa", sans-serif;
 }
 
 .answer-button:active {
@@ -336,4 +367,19 @@ button:active {
 .setting input[type="checkbox"] {
   width: 20px;
   height: 20px;
+}
+
+#home-logo {
+  width: 80%;
+  margin: auto;
+}
+
+#settings-logo {
+  width: 50%;
+  margin: auto;
+}
+
+#profile-logo {
+  width: 30%;
+  margin: auto;
 }

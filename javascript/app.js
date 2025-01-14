@@ -19,6 +19,20 @@ if (localStorage.getItem("loggedIn") !== "true") {
   localStorage.setItem("loggedIn", "false");
 }
 
+if (window.location.pathname.includes("index.html") || window.location.pathname.includes("profile.html") || window.location.pathname.includes("settings.html")) {
+  const logoSvg = document.getElementById("logo-svg");
+  const randomSrc = Math.floor(Math.random() * 3) + 1;
+  logoSvg.src = `../assets/quickmathlogo-0${randomSrc}.svg`;
+  if (window.location.pathname.includes("profile.html")) {
+    if (localStorage.getItem("loggedIn") === "true") {
+      const logoSvg = document.getElementById("logo-svg");
+      const randomSrc = Math.floor(Math.random() * 3) + 1;
+      logoSvg.src = `../assets/quickmathlogo-0${randomSrc}.svg`;
+
+    }
+  }
+}
+
 async function fetchUnits() {
   try {
     const response = await fetch("../data/units.json");
@@ -68,6 +82,8 @@ function populateUnitSelect() {
 function handleUnitSelect(event) {
   const selectedUnitIndex = event.target.value;
   populateLevelList(selectedUnitIndex);
+  const homeLogo = document.getElementById("home-logo");
+  homeLogo.innerHTML = "";
 }
 
 function populateLevelList(unitIndex) {
@@ -127,9 +143,8 @@ function displayQuestion(unitIndex, levelIndex, questionIndex) {
   document.getElementById(
     "levelTitle"
   ).textContent = `${unit.unitName} - Level ${level.level}`;
-  document.getElementById("problemTitle").textContent = `Problem ${
-    questionIndex + 1
-  }`;
+  document.getElementById("problemTitle").textContent = `Problem ${questionIndex + 1
+    }`;
   document.getElementById("question").textContent = problem.question;
 
   const answersContainer = document.getElementById("answers");

@@ -8,15 +8,47 @@
   </head>
   <body>
     <nav>
-      <h1>QuickMath</h1>
+      <h1><a href="index.html">QuickMath</a></h1>
     </nav>
 
     <main id="content">
       <h2 id="levelTitle"></h2>
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
       <h3 id="problemTitle"></h3>
       <div id="question"></div>
       <div id="answers"></div>
+
+      <div id="calculatorContainer"></div>
+      <div id="calculator" style="display: none">
+        <div id="calcDisplay">0</div>
+        <div id="calcButtons">
+          <button class="calc-btn" data-value="7">7</button>
+          <button class="calc-btn" data-value="8">8</button>
+          <button class="calc-btn" data-value="9">9</button>
+          <button class="calc-btn" data-value="/">÷</button>
+          <button class="calc-btn" data-value="4">4</button>
+          <button class="calc-btn" data-value="5">5</button>
+          <button class="calc-btn" data-value="6">6</button>
+          <button class="calc-btn" data-value="*">×</button>
+          <button class="calc-btn" data-value="1">1</button>
+          <button class="calc-btn" data-value="2">2</button>
+          <button class="calc-btn" data-value="3">3</button>
+          <button class="calc-btn" data-value="-">−</button>
+          <button class="calc-btn" data-value="0">0</button>
+          <button class="calc-btn" data-value=".">.</button>
+          <button class="calc-btn" data-value="=">=</button>
+          <button class="calc-btn" data-value="+">+</button>
+          <button class="calc-btn" data-action="clear">C</button>
+          <button class="calc-btn" data-action="delete">DEL</button>
+        </div>
+      </div>
     </main>
+
+    <div id="modal-overlay" class="hidden">
+      <div id="modal-message"></div>
+    </div>
 
     <footer>
       <button id="homeBtn"><i class="fa-solid fa-house"></i></button>

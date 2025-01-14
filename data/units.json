@@ -214,7 +214,8 @@
             {
               "question": "What is the radius if a circle has a diameter of 10?",
               "answers": [5, 10, 15, 20],
-              "correctAnswer": 5
+              "correctAnswer": 5,
+              "calculatorActive": true
             },
             {
               "question": "How many sides does a hexagon have?",
@@ -229,17 +230,20 @@
             {
               "question": "What is the area of a triangle with base 6 and height 4?",
               "answers": [12, 24, 18, 30],
-              "correctAnswer": 12
+              "correctAnswer": 12,
+              "calculatorActive": true
             },
             {
               "question": "What is the circumference of a circle with radius 7? (Use π = 22/7)",
               "answers": [44, 49, 56, 14],
-              "correctAnswer": 44
+              "correctAnswer": 44,
+              "calculatorActive": true
             },
             {
               "question": "What is the volume of a cube with side length 3?",
               "answers": [9, 18, 27, 24],
-              "correctAnswer": 27
+              "correctAnswer": 27,
+              "calculatorActive": true
             },
             {
               "question": "What is the sum of angles in a quadrilateral?",
@@ -249,7 +253,8 @@
             {
               "question": "What is the diagonal of a square with side length 8? (Round to the nearest whole number)",
               "answers": [11, 12, 13, 14],
-              "correctAnswer": 11
+              "correctAnswer": 11,
+              "calculatorActive": true
             }
           ]
         },
@@ -259,27 +264,32 @@
             {
               "question": "What is the surface area of a sphere with radius 3? (Use π = 3.14, the formula for the surface area of a sphere is 4πr²)",
               "answers": [113.04, 124.56, 134.56, 148.24],
-              "correctAnswer": 113.04
+              "correctAnswer": 113.04,
+              "calculatorActive": true
             },
             {
               "question": "What is the volume of a cylinder with radius 3 and height 5? (Use π = 3.14, the formula for the volume of a cylinder is πr²h)",
               "answers": [141.3, 160.2, 150, 176.2],
-              "correctAnswer": 141.3
+              "correctAnswer": 141.3,
+              "calculatorActive": true
             },
             {
               "question": "What is the length of a diagonal in a rectangular prism with dimensions 3, 4, and 12?",
               "answers": [13, 14, 15, 16],
-              "correctAnswer": 13
+              "correctAnswer": 13,
+              "calculatorActive": true
             },
             {
               "question": "What is the area of a sector with radius 6 and angle 60°? (Use π = 3.14, the formula for the area of a sector is (θ / 360°) * πr²)",
               "answers": [18.84, 20.02, 21.02, 22.5],
-              "correctAnswer": 18.84
+              "correctAnswer": 18.84,
+              "calculatorActive": true
             },
             {
-              "question": "What is the volume of a cone with radius 3 and height 4? (Use π = 3.14)",
+              "question": "What is the volume of a cone with radius 3 and height 4? (Use π = 3.14, the formula for the volume of a cone is (1/3) * πr²h)",
               "answers": [37.68, 38.94, 39.88, 40.12],
-              "correctAnswer": 37.68
+              "correctAnswer": 37.68,
+              "calculatorActive": true
             }
           ]
         }

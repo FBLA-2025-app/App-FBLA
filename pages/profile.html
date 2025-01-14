@@ -12,8 +12,30 @@
     </nav>
 
     <main id="content">
-      <h2>Profile</h2>
-      <p>This is where the user's profile information would be displayed.</p>
+    <div id="auth-container">
+        <div id="sign-up-form" class="profile-hidden">
+            <h2>Sign Up</h2>
+            <input type="text" id="sign-up-username" placeholder="Username">
+            <input type="email" id="sign-up-email" placeholder="Email">
+            <input type="password" id="sign-up-password" placeholder="Password">
+            <button type="button" id="sign-up-button">Sign Up</button>
+        </div>
+        <div id="log-in-form">
+            <h2>Log In</h2>
+            <input type="email" id="log-in-email" placeholder="Email">
+            <input type="password" id="log-in-password" placeholder="Password">
+            <button type="button" id="log-in-button">Log In</button>
+        </div>
+        <button type="button" id="toggle-auth-forms">Switch to Sign Up</button>
+    </div>
+    <div id="profile-container" class="profile-hidden">
+        <h2>Profile</h2>
+        <p id="profile-info"></p>
+        <button type="button" id="log-out-button">Log Out</button>
+        <h3>Send Feedback</h3>
+        <textarea id="feedback-text" placeholder="Your feedback"></textarea>
+        <button type="button" id="submit-feedback">Submit Feedback</button>
+    </div>
     </main>
 
     <footer>

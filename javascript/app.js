@@ -25,9 +25,9 @@ if (window.location.pathname.includes("index.html") || window.location.pathname.
   logoSvg.src = `../assets/quickmathlogo-0${randomSrc}.svg`;
   if (window.location.pathname.includes("profile.html")) {
     if (localStorage.getItem("loggedIn") === "true") {
-      const logoSvg = document.getElementById("logo-svg");
-      const randomSrc = Math.floor(Math.random() * 3) + 1;
-      logoSvg.src = `../assets/quickmathlogo-0${randomSrc}.svg`;
+  const logoSvg = document.getElementById("logo-svg");
+  const randomSrc = Math.floor(Math.random() * 3) + 1;
+  logoSvg.src = `../assets/quickmathlogo-0${randomSrc}.svg`;
 
     }
   }

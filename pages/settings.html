@@ -16,12 +16,37 @@
         <p>This is where the user's settings would be displayed.</p>
     </main>
 
-    <footer>
+    <!-- <footer>
         <button id="homeBtn">Home</button>
         <button id="profileBtn" class="active">Profile</button>
         <button id="settingsBtn">Settings</button>
+    </footer> -->
+     <audio id="audio2" src="../data/audio/tap-notification-180637.mp3"></audio>
+    <footer>
+      <button class="footer-btn" id="homeBtn" class="active">
+        <i class="fa-solid fa-house"></i>
+      </button>
+      <button class="footer-btn" id="profileBtn">
+        <i class="fa-solid fa-user"></i>
+      </button>
+      <button onclick="playAudio()" class="footer-btn" id="settingsBtn">
+        <i class="fa-solid fa-gear"></i>
+      </button>
     </footer>
+ 
+     <script>
+      // JavaScript function to play the audio
+      function playAudio() {
+        const audio = document.getElementById("audio");
+        audio.currentTime = 0; // Reset the audio to the beginning
+        audio.play(); // Play the audio
+      }
+    </script>
 
     <script src="../javascript/app.js"></script>
+     <script
+      src="https://kit.fontawesome.com/6e0ca69a51.js"
+      crossorigin="anonymous"
+    ></script>
 </body>
 </html>

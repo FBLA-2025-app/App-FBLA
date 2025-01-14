@@ -5,22 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QuickMath - Level</title>
     <link rel="stylesheet" href="../styles/styles.css" />
+    
   </head>
   <body>
     <nav>
       <h1>QuickMath</h1>
     </nav>
 
+    <audio loop autoplay>
+      <source
+        src="../data/audio/kid-games-music-comedy-situation-soundtrack-play-arcade-283659.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+
     <main id="content">
       <h2 id="levelTitle"></h2>
       <div id="question"></div>
       <div id="answers"></div>
     </main>
-
+  
+ <audio id="audio2" src="../data/audio/tap-notification-180637.mp3"></audio>
     <footer>
-      <button id="homeBtn"><i class="fa-solid fa-house"></i></button>
-      <button id="profileBtn">Profile</button>
-      <button id="settingsBtn">Settings</button>
+      <button class="footer-btn" id="homeBtn" class="active">
+        <i class="fa-solid fa-house"></i>
+      </button>
+      <button class="footer-btn" id="profileBtn">
+        <i class="fa-solid fa-user"></i>
+      </button>
+      <button class="footer-btn" id="settingsBtn">
+        <i class="fa-solid fa-gear"></i>
+      </button>
     </footer>
 
     <script src="../javascript/app.js"></script>
@@ -28,5 +44,13 @@
       src="https://kit.fontawesome.com/6e0ca69a51.js"
       crossorigin="anonymous"
     ></script>
+     <script>
+      // JavaScript function to play the audio
+      function playAudio() {
+        const audio = document.getElementById("audio");
+        audio.currentTime = 0; // Reset the audio to the beginning
+        audio.play(); // Play the audio
+      }
+    </script>
   </body>
 </html>

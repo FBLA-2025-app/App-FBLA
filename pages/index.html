@@ -14,6 +14,14 @@
       </select>
     </nav>
 
+    <audio id="musicAudio" loop>
+      <source
+        src="../data/audio/kid-games-music-comedy-situation-soundtrack-play-arcade-283659.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+
     <main id="content">
       <h2 id="home-header">Welcome to QuickMath!</h2>
       <div id="home-logo">
@@ -21,7 +29,15 @@
       </div>
       <div id="levelList"></div>
     </main>
-
+ 
+    <!-- <audio id="audio">
+      <source
+        src="../data/audio/tap-notification-180637.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio> -->
+ <audio id="audio2" src="../data/audio/tap-notification-180637.mp3"></audio>
     <footer>
       <button
         type="button"
@@ -55,5 +71,13 @@
       src="https://kit.fontawesome.com/6e0ca69a51.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      // JavaScript function to play the audio
+      function playAudio() {
+        const audio = document.getElementById("audio");
+        audio.currentTime = 0; // Reset the audio to the beginning
+        audio.play(); // Play the audio
+      }
+    </script>
   </body>
 </html>

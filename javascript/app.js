@@ -1,10 +1,34 @@
+
+
+const musicAudio = document.getElementById('musicAudio');
+if (musicAudio) { 
+    musicAudio.volume = 0.5;
+}
+const correctAudio = document.getElementById("correctAudio");
+const wrongAudio = document.getElementById('incorrectAudio');
+if (wrongAudio) { 
+    wrongAudio.volume = 0.3;
+}
 let units = [];
 let audioEnabled = localStorage.getItem("audioEnabled") === "true";
 let musicEnabled = localStorage.getItem("musicEnabled") === "true";
+if (window.location.pathname.includes("settings.html")) {
+    if (audioEnabled) {
+        document.getElementById('toggle-audio').checked = true;
+    }
+
+    if (musicEnabled) {
+        document.getElementById('toggle-music').checked = true;
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchUnits();
-  setupEventListeners();
+    setupEventListeners();
+    
+    if (musicEnabled) { 
+        musicAudio.play();
+    }
 
   const currentUnit = localStorage.getItem("currentUnit");
   if (currentUnit !== null) {
@@ -57,8 +81,50 @@ function setupEventListeners() {
 
   homeBtn.addEventListener("click", () => navigateTo("index.html"));
   profileBtn.addEventListener("click", () => navigateTo("profile.html"));
-  settingsBtn.addEventListener("click", () => navigateTo("settings.html"));
+    settingsBtn.addEventListener("click", () => navigateTo("settings.html"));
+    
+
+    homeBtn.addEventListener('click', () => {
+        // JavaScript function to play the audio
+        const audio = document.getElementById("audio2");
+        if (audio) {
+            audio.currentTime = 0; // Reset the audio to the beginning
+            audio.play(); // Play the audio
+            audio.onended = () => {
+                window.location.href = 'index.html'; // Navigate to home.html
+            };
+        } else {
+            console.error("Audio element with id 'audio2' not found!");
+            window.location.href = 'index.html'; // Fallback navigation
+        }
+        
+        // navigateTo('index.html')
+    })
+;
+    profileBtn.addEventListener('click', () => {
+        // JavaScript function to play the audio
+
+        const audio = document.getElementById("audio2");
+        
+        
+        audio.currentTime = 0; // Reset the audio to the beginning
+        audio.play(); // Play the audio
+        audio.onended = () => {
+            window.location.href = 'profile.html'; // Navigate to home.html
+        };
+
+        // navigateTo('index.html')
+    })
+        
+    settingsBtn.addEventListener('click', () => navigateTo('settings.html'));
 }
+
+function playAudio() {
+    const audio = document.getElementById("audio");
+    audio.currentTime = 0; // Reset the audio to the beginning
+    audio.play(); // Play the audio
+}
+
 
 function navigateTo(page) {
   window.location.href = page;
@@ -258,7 +324,10 @@ function checkAnswer(unitIndex, levelIndex, questionIndex, answerIndex) {
   const isCorrect = problem.answers[answerIndex] === problem.correctAnswer;
 
   if (isCorrect) {
-    correctAnim("Correct!");
+      correctAnim("Correct!");
+      if (audioEnabled) {
+          correctAudio.play();
+      }
     updateProgressBar(unitIndex, levelIndex, questionIndex + 1);
 
     const calculator = document.getElementById("calculator");
@@ -294,7 +363,10 @@ function checkAnswer(unitIndex, levelIndex, questionIndex, answerIndex) {
       }
     }
   } else {
-    incorrectAnim("Incorrect. Try again!");
+      incorrectAnim("Incorrect. Try again!");
+      if (audioEnabled) { 
+          wrongAudio.play();
+      }
     localStorage.setItem(
       "incorrectAnswers",
       parseInt(localStorage.getItem("incorrectAnswers")) + 1
@@ -499,9 +571,12 @@ if (window.location.pathname.includes("settings.html")) {
 
   toggleMusic.addEventListener("change", () => {
     if (toggleMusic.checked) {
-      localStorage.setItem("musicEnabled", "true");
+        localStorage.setItem("musicEnabled", "true");
+        musicAudio.load();
+        musicAudio.play();
     } else {
-      localStorage.setItem("musicEnabled", "false");
+        localStorage.setItem("musicEnabled", "false");
+        musicAudio.pause();
     }
   });
 }

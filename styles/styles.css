@@ -95,10 +95,16 @@ button:active {
     transition: all 0.3s ease;
 }
 
-.level-button:active {
+.active-level:active {
     transform: scale(0.95);
     background-color: #6A1CB2;
 }
+
+.disabled-level {
+    background-color: #333333;
+    cursor: not-allowed;
+}
+
 
 #question {
     font-size: 1.2em;
@@ -141,6 +147,7 @@ button:active {
     }
 }
 
-select:hover, button:hover, .level-button:hover, .answer-button:hover {
+/* select:hover, button:hover, .level-button:hover, .answer-button:hover { */
+.active-level:hover {
     animation: pulse 0.3s ease-in-out;
 }

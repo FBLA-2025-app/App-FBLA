@@ -83,7 +83,7 @@
             },
             {
               "question": "What is 72 ÷ 8 × 3?",
-              "answers": [24, 26, 28, 30],
+              "answers": [24, 27, 28, 30],
               "correctAnswer": 27
             },
             {
@@ -257,12 +257,12 @@
           "level": 3,
           "problems": [
             {
-              "question": "What is the surface area of a sphere with radius 3? (Use π = 3.14)",
+              "question": "What is the surface area of a sphere with radius 3? (Use π = 3.14, the formula for the surface area of a sphere is 4πr²)",
               "answers": [113.04, 124.56, 134.56, 148.24],
               "correctAnswer": 113.04
             },
             {
-              "question": "What is the volume of a cylinder with radius 3 and height 5? (Use π = 3.14)",
+              "question": "What is the volume of a cylinder with radius 3 and height 5? (Use π = 3.14, the formula for the volume of a cylinder is πr²h)",
               "answers": [141.3, 160.2, 150, 176.2],
               "correctAnswer": 141.3
             },
@@ -272,7 +272,7 @@
               "correctAnswer": 13
             },
             {
-              "question": "What is the area of a sector with radius 6 and angle 60°? (Use π = 3.14)",
+              "question": "What is the area of a sector with radius 6 and angle 60°? (Use π = 3.14, the formula for the area of a sector is (θ / 360°) * πr²)",
               "answers": [18.84, 20.02, 21.02, 22.5],
               "correctAnswer": 18.84
             },

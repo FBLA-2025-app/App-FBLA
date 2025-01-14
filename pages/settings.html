@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QuickMath - Profile</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
     <nav>
-        <h1>QuickMath</h1>
+      <h1><a href="index.html">QuickMath</a></h1>
     </nav>
 
     <main id="content">
-        <h2>Settings</h2>
-        <div class="setting">
-            <label for="toggle-audio">Audio</label>
-            <input type="checkbox" id="toggle-audio">
-        </div>
-        <div class="setting">
-            <label for="toggle-music">Music</label>
-            <input type="checkbox" id="toggle-music">
-        </div>
+      <h2>Settings</h2>
+      <div class="setting">
+        <label for="toggle-audio">Audio</label>
+        <input type="checkbox" id="toggle-audio" />
+      </div>
+      <div class="setting">
+        <label for="toggle-music">Music</label>
+        <input type="checkbox" id="toggle-music" />
+      </div>
     </main>
 
     <footer>
-        <button id="homeBtn">Home</button>
-        <button id="profileBtn" class="active">Profile</button>
-        <button id="settingsBtn">Settings</button>
+      <button
+        type="button"
+        title="nav-button"
+        class="footer-btn"
+        id="homeBtn"
+        class="active"
+      >
+        <i class="fa-solid fa-house"></i>
+      </button>
+      <button
+        type="button"
+        title="nav-button"
+        class="footer-btn"
+        id="profileBtn"
+      >
+        <i class="fa-solid fa-user"></i>
+      </button>
+      <button
+        type="button"
+        title="nav-button"
+        class="footer-btn"
+        id="settingsBtn"
+      >
+        <i class="fa-solid fa-gear"></i>
+      </button>
     </footer>
 
     <script src="../javascript/app.js"></script>
-</body>
+    <script
+      src="https://kit.fontawesome.com/6e0ca69a51.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

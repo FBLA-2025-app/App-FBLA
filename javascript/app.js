@@ -1,3 +1,6 @@
+
+
+
 let units = [];
 let audioEnabled = localStorage.getItem("audioEnabled") === "true";
 let musicEnabled = localStorage.getItem("musicEnabled") === "true";
@@ -57,8 +60,46 @@ function setupEventListeners() {
 
   homeBtn.addEventListener("click", () => navigateTo("index.html"));
   profileBtn.addEventListener("click", () => navigateTo("profile.html"));
-  settingsBtn.addEventListener("click", () => navigateTo("settings.html"));
+    settingsBtn.addEventListener("click", () => navigateTo("settings.html"));
+    
+
+    homeBtn.addEventListener('click', () => {
+        // JavaScript function to play the audio
+        const audio = document.getElementById("audio2");
+        if (audio) {
+            audio.currentTime = 0; // Reset the audio to the beginning
+            audio.play(); // Play the audio
+            audio.onended = () => {
+                window.location.href = 'index.html'; // Navigate to home.html
+            };
+        } else {
+            console.error("Audio element with id 'audio2' not found!");
+            window.location.href = 'index.html'; // Fallback navigation
+        }
+        
+        // navigateTo('index.html')
+    })
+;
+    profileBtn.addEventListener('click', () => {
+        // JavaScript function to play the audio
+
+        const audio = document.getElementById("audio2");
+        
+        
+        audio.currentTime = 0; // Reset the audio to the beginning
+        audio.play(); // Play the audio
+        audio.onended = () => {
+            window.location.href = 'profile.html'; // Navigate to home.html
+        };
+
+        // navigateTo('index.html')
+    })
+        
+    settingsBtn.addEventListener('click', () => navigateTo('settings.html'));
 }
+
+
+
 
 function navigateTo(page) {
   window.location.href = page;

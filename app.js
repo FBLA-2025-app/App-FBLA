@@ -47,12 +47,12 @@ if (localStorage.getItem("loggedIn") !== "true") {
 if (window.location.pathname.includes("index.html") || window.location.pathname.includes("profile.html") || window.location.pathname.includes("settings.html")) {
   const logoSvg = document.getElementById("logo-svg");
   const randomSrc = Math.floor(Math.random() * 3) + 1;
-  logoSvg.src = `../assets/quickmathlogo-0${randomSrc}.svg`;
+  logoSvg.src = `quickmathlogo-0${randomSrc}.svg`;
   if (window.location.pathname.includes("profile.html")) {
     if (localStorage.getItem("loggedIn") === "true") {
   const logoSvg = document.getElementById("logo-svg");
   const randomSrc = Math.floor(Math.random() * 3) + 1;
-  logoSvg.src = `../assets/quickmathlogo-0${randomSrc}.svg`;
+  logoSvg.src = `quickmathlogo-0${randomSrc}.svg`;
 
     }
   }
@@ -60,7 +60,7 @@ if (window.location.pathname.includes("index.html") || window.location.pathname.
 
 async function fetchUnits() {
   try {
-    const response = await fetch("../data/units.json");
+    const response = await fetch("units.json");
     const data = await response.json();
     units = data.units;
     console.log(units);

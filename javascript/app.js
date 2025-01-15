@@ -4,6 +4,7 @@ const musicAudio = document.getElementById('musicAudio');
 if (musicAudio) { 
     musicAudio.volume = 0.5;
 }
+const levelAudio = document.getElementById('levelAudio');
 const correctAudio = document.getElementById("correctAudio");
 const wrongAudio = document.getElementById('incorrectAudio');
 if (wrongAudio) { 
@@ -343,10 +344,17 @@ function checkAnswer(unitIndex, levelIndex, questionIndex, answerIndex) {
       if (parseInt(levelIndex) === units[unitIndex].levels.length - 1) {
         markLevelCompleted(unitIndex, levelIndex);
         setTimeout(() => {
-          levelCompleteAnim("Level completed!");
+            levelCompleteAnim("Level completed!");
+            if (audioEnabled) {
+                levelAudio.play();
+            }
           setTimeout(() => {
             markUnitCompleted(unitIndex);
-            unitCompleteAnim("Unit completed!");
+              unitCompleteAnim("Unit completed!");
+              if (audioEnabled) {
+                  levelAudio.load();
+                  levelAudio.play();
+              }
             localStorage.setItem("currentUnit", unitIndex);
             setTimeout(() => {
               window.location.href = "index.html";
@@ -356,7 +364,10 @@ function checkAnswer(unitIndex, levelIndex, questionIndex, answerIndex) {
       } else {
         markLevelCompleted(unitIndex, levelIndex);
         setTimeout(() => {
-          levelCompleteAnim("Level completed!");
+            levelCompleteAnim("Level completed!");
+            if (audioEnabled) { 
+                levelAudio.play();
+            }
           localStorage.setItem("currentUnit", unitIndex);
           setTimeout(() => {
             window.location.href = "index.html";

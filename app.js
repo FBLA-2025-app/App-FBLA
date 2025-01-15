@@ -1,35 +1,37 @@
-
-
-const musicAudio = document.getElementById('musicAudio');
-if (musicAudio) { 
-    musicAudio.volume = 0.5;
+const musicAudio = document.getElementById("musicAudio");
+if (musicAudio) {
+  musicAudio.volume = 0.5;
 }
-const levelAudio = document.getElementById('levelAudio');
+const levelAudio = document.getElementById("levelAudio");
 const correctAudio = document.getElementById("correctAudio");
-const wrongAudio = document.getElementById('incorrectAudio');
-if (wrongAudio) { 
-    wrongAudio.volume = 0.3;
+const wrongAudio = document.getElementById("incorrectAudio");
+if (wrongAudio) {
+  wrongAudio.volume = 0.3;
 }
 let units = [];
 let audioEnabled = localStorage.getItem("audioEnabled") === "true";
 let musicEnabled = localStorage.getItem("musicEnabled") === "true";
 if (window.location.pathname.includes("settings.html")) {
-    if (audioEnabled) {
-        document.getElementById('toggle-audio').checked = true;
-    }
+  if (audioEnabled) {
+    document.getElementById("toggle-audio").checked = true;
+  }
 
-    if (musicEnabled) {
-        document.getElementById('toggle-music').checked = true;
-    }
+  if (musicEnabled) {
+    document.getElementById("toggle-music").checked = true;
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchUnits();
-    setupEventListeners();
-    
-    if (musicEnabled) { 
-        musicAudio.play();
+  setupEventListeners();
+
+  setTimeout(() => {
+    console.log("music enabled:", musicEnabled);
+    if (musicEnabled) {
+      musicAudio.play();
+      console.log("music enabled");
     }
+  }, 300);
 
   const currentUnit = localStorage.getItem("currentUnit");
   if (currentUnit !== null) {
@@ -44,16 +46,19 @@ if (localStorage.getItem("loggedIn") !== "true") {
   localStorage.setItem("loggedIn", "false");
 }
 
-if (window.location.pathname.includes("index.html") || window.location.pathname.includes("profile.html") || window.location.pathname.includes("settings.html")) {
+if (
+  window.location.pathname.includes("index.html") ||
+  window.location.pathname.includes("profile.html") ||
+  window.location.pathname.includes("settings.html")
+) {
   const logoSvg = document.getElementById("logo-svg");
   const randomSrc = Math.floor(Math.random() * 3) + 1;
   logoSvg.src = `quickmathlogo-0${randomSrc}.svg`;
   if (window.location.pathname.includes("profile.html")) {
     if (localStorage.getItem("loggedIn") === "true") {
-  const logoSvg = document.getElementById("logo-svg");
-  const randomSrc = Math.floor(Math.random() * 3) + 1;
-  logoSvg.src = `quickmathlogo-0${randomSrc}.svg`;
-
+      const logoSvg = document.getElementById("logo-svg");
+      const randomSrc = Math.floor(Math.random() * 3) + 1;
+      logoSvg.src = `quickmathlogo-0${randomSrc}.svg`;
     }
   }
 }
@@ -82,50 +87,46 @@ function setupEventListeners() {
 
   homeBtn.addEventListener("click", () => navigateTo("index.html"));
   profileBtn.addEventListener("click", () => navigateTo("profile.html"));
-    settingsBtn.addEventListener("click", () => navigateTo("settings.html"));
-    
+  settingsBtn.addEventListener("click", () => navigateTo("settings.html"));
 
-    homeBtn.addEventListener('click', () => {
-        // JavaScript function to play the audio
-        const audio = document.getElementById("audio2");
-        if (audio) {
-            audio.currentTime = 0; // Reset the audio to the beginning
-            audio.play(); // Play the audio
-            audio.onended = () => {
-                window.location.href = 'index.html'; // Navigate to home.html
-            };
-        } else {
-            console.error("Audio element with id 'audio2' not found!");
-            window.location.href = 'index.html'; // Fallback navigation
-        }
-        
-        // navigateTo('index.html')
-    })
-;
-    profileBtn.addEventListener('click', () => {
-        // JavaScript function to play the audio
+  homeBtn.addEventListener("click", () => {
+    // JavaScript function to play the audio
+    const audio = document.getElementById("audio2");
+    if (audio) {
+      audio.currentTime = 0; // Reset the audio to the beginning
+      audio.play(); // Play the audio
+      audio.onended = () => {
+        window.location.href = "index.html"; // Navigate to home.html
+      };
+    } else {
+      console.error("Audio element with id 'audio2' not found!");
+      window.location.href = "index.html"; // Fallback navigation
+    }
 
-        const audio = document.getElementById("audio2");
-        
-        
-        audio.currentTime = 0; // Reset the audio to the beginning
-        audio.play(); // Play the audio
-        audio.onended = () => {
-            window.location.href = 'profile.html'; // Navigate to home.html
-        };
+    // navigateTo('index.html')
+  });
+  profileBtn.addEventListener("click", () => {
+    // JavaScript function to play the audio
 
-        // navigateTo('index.html')
-    })
-        
-    settingsBtn.addEventListener('click', () => navigateTo('settings.html'));
+    const audio = document.getElementById("audio2");
+
+    audio.currentTime = 0; // Reset the audio to the beginning
+    audio.play(); // Play the audio
+    audio.onended = () => {
+      window.location.href = "profile.html"; // Navigate to home.html
+    };
+
+    // navigateTo('index.html')
+  });
+
+  settingsBtn.addEventListener("click", () => navigateTo("settings.html"));
 }
 
 function playAudio() {
-    const audio = document.getElementById("audio");
-    audio.currentTime = 0; // Reset the audio to the beginning
-    audio.play(); // Play the audio
+  const audio = document.getElementById("audio");
+  audio.currentTime = 0; // Reset the audio to the beginning
+  audio.play(); // Play the audio
 }
-
 
 function navigateTo(page) {
   window.location.href = page;
@@ -212,8 +213,9 @@ function displayQuestion(unitIndex, levelIndex, questionIndex) {
   document.getElementById(
     "levelTitle"
   ).textContent = `${unit.unitName} - Level ${level.level}`;
-  document.getElementById("problemTitle").textContent = `Problem ${questionIndex + 1
-    }`;
+  document.getElementById("problemTitle").textContent = `Problem ${
+    questionIndex + 1
+  }`;
   document.getElementById("question").textContent = problem.question;
 
   const answersContainer = document.getElementById("answers");
@@ -327,10 +329,10 @@ function checkAnswer(unitIndex, levelIndex, questionIndex, answerIndex) {
   const isCorrect = problem.answers[answerIndex] === problem.correctAnswer;
 
   if (isCorrect) {
-      correctAnim("Correct!");
-      if (audioEnabled) {
-          correctAudio.play();
-      }
+    correctAnim("Correct!");
+    if (audioEnabled) {
+      correctAudio.play();
+    }
     updateProgressBar(unitIndex, levelIndex, questionIndex + 1);
 
     const calculator = document.getElementById("calculator");
@@ -344,17 +346,18 @@ function checkAnswer(unitIndex, levelIndex, questionIndex, answerIndex) {
       if (parseInt(levelIndex) === units[unitIndex].levels.length - 1) {
         markLevelCompleted(unitIndex, levelIndex);
         setTimeout(() => {
-            levelCompleteAnim("Level completed!");
-            if (audioEnabled) {
-                levelAudio.play();
-            }
+          levelCompleteAnim("Level completed!");
+          if (audioEnabled) {
+            levelAudio.play();
+            musicAudio.pause();
+          }
           setTimeout(() => {
             markUnitCompleted(unitIndex);
-              unitCompleteAnim("Unit completed!");
-              if (audioEnabled) {
-                  levelAudio.load();
-                  levelAudio.play();
-              }
+            unitCompleteAnim("Unit completed!");
+            if (audioEnabled) {
+              levelAudio.load();
+              levelAudio.play();
+            }
             localStorage.setItem("currentUnit", unitIndex);
             setTimeout(() => {
               window.location.href = "index.html";
@@ -364,10 +367,11 @@ function checkAnswer(unitIndex, levelIndex, questionIndex, answerIndex) {
       } else {
         markLevelCompleted(unitIndex, levelIndex);
         setTimeout(() => {
-            levelCompleteAnim("Level completed!");
-            if (audioEnabled) { 
-                levelAudio.play();
-            }
+          levelCompleteAnim("Level completed!");
+          if (audioEnabled) {
+            levelAudio.play();
+            musicAudio.pause();
+          }
           localStorage.setItem("currentUnit", unitIndex);
           setTimeout(() => {
             window.location.href = "index.html";
@@ -376,10 +380,10 @@ function checkAnswer(unitIndex, levelIndex, questionIndex, answerIndex) {
       }
     }
   } else {
-      incorrectAnim("Incorrect. Try again!");
-      if (audioEnabled) { 
-          wrongAudio.play();
-      }
+    incorrectAnim("Incorrect. Try again!");
+    if (audioEnabled) {
+      wrongAudio.play();
+    }
     localStorage.setItem(
       "incorrectAnswers",
       parseInt(localStorage.getItem("incorrectAnswers")) + 1
@@ -564,10 +568,10 @@ if (window.location.pathname.includes("profile.html")) {
 }
 
 if (localStorage.getItem("audioEnabled") === null) {
-  localStorage.setItem("audioEnabled", "true");
+  localStorage.setItem("audioEnabled", "false");
 }
 if (localStorage.getItem("musicEnabled") === null) {
-  localStorage.setItem("musicEnabled", "true");
+  localStorage.setItem("musicEnabled", "false");
 }
 
 if (window.location.pathname.includes("settings.html")) {
@@ -584,12 +588,12 @@ if (window.location.pathname.includes("settings.html")) {
 
   toggleMusic.addEventListener("change", () => {
     if (toggleMusic.checked) {
-        localStorage.setItem("musicEnabled", "true");
-        musicAudio.load();
-        musicAudio.play();
+      localStorage.setItem("musicEnabled", "true");
+      musicAudio.load();
+      musicAudio.play();
     } else {
-        localStorage.setItem("musicEnabled", "false");
-        musicAudio.pause();
+      localStorage.setItem("musicEnabled", "false");
+      musicAudio.pause();
     }
   });
 }

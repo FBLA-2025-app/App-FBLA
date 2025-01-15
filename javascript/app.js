@@ -150,6 +150,8 @@ function handleUnitSelect(event) {
   populateLevelList(selectedUnitIndex);
   const homeLogo = document.getElementById("home-logo");
   homeLogo.innerHTML = "";
+  const homeHeader = document.getElementById("home-header");
+  homeHeader.innerHTML = `${units[selectedUnitIndex].unitName}`;
 }
 
 function populateLevelList(unitIndex) {
